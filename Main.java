@@ -7,15 +7,27 @@ class Login {
 
         if (logType.equalsIgnoreCase("Student")) {
 
+            Extrafeatures.clearConsole();
             System.out.println("Welcome Dear Student!!");
             System.out.println("Please login...");
 
-            System.out.print("Enter your ID: ");
+            System.out.printf("Enter your ID: ");
             int userIdInput = sc.nextInt();
             if(obj2.s_id_verify(userIdInput) == 1){
-                System.out.print("Enter your password: ");
+                System.out.println("Enter your password");
+                sc.nextLine();
                 String userPassInput = sc.nextLine();
-                System.out.println("Login successful for " + logType + " with ID " + userIdInput);
+
+                if(obj2.pass_verify(userPassInput)==1){
+                    Extrafeatures.clearConsole();
+                    System.out.println("Login successful for " + logType + " with ID " + userIdInput);
+                }
+                else{
+                    System.out.println("\nIncorrect password");;
+                }
+            }
+            else{
+                System.out.println("\nStudent ID not found !");
             }
 
         } else if (logType.equalsIgnoreCase("Teacher")) {

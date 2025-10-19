@@ -1,7 +1,8 @@
 public class Verification{
     int ID=250079;
+    int Hashed = "Password".hashCode();
     public int pass_verify(String pass){
-        if(pass.equals("Password")){
+        if(pass.hashCode() == Hashed){
             return 1;
         }
         else{
